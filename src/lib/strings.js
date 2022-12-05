@@ -15,7 +15,7 @@ function countCharacters(string) {
 }
 
 function firstCharacter(string) {
-  return string.charAt(0);
+  return string[0];
 }
 
 function firstCharacters(string, n) {
