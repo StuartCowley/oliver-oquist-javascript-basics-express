@@ -1,9 +1,10 @@
-const { urlencoded } = require('express');
 const express = require('express');
 
-const { sayHello } = require('./lib/strings');
-const { firstCharacters } = require('./lib/strings');
-const { firstCharacter } = require('./lib/strings');
+// strings
+const { sayHello, firstCharacters, firstCharacter } = require('./lib/strings');
+
+// numbers
+const { add } = require('./lib/numbers');
 
 const app = express();
 
@@ -32,4 +33,12 @@ app.get('/strings/first-characters/:string', (req, res) => {
   res.json({ result: firstCharacters(req.params.string, req.query.length) });
 });
 
+app.get('/numbers/add/:a/and/:b', (req, res) => {
+  const a = parseInt(req.params.a);
+  const b = parseInt(req.params.b);
+
+  res.status(200).json({ result: add(a, b) });
+});
+
+app.get('/numbers/add/:numberone/and/numbertwo', (req, res) => {});
 module.exports = app;
