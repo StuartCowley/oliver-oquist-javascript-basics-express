@@ -4,9 +4,11 @@ const express = require('express');
 const { sayHello, firstCharacters, firstCharacter } = require('./lib/strings');
 
 // numbers
-const { add } = require('./lib/numbers');
+const { add, subtract, multiply } = require('./lib/numbers');
 
 const app = express();
+
+app.use(express.json());
 
 app.get('/strings/hello/:string', (req, res) => {
   res.status(200);
@@ -40,6 +42,25 @@ app.get('/numbers/add/:a/and/:b', (req, res) => {
     return res.status(400).json({ error: 'Parameters must be valid numbers.' });
   }
   return res.status(200).json({ result: add(a, b) });
+});
+
+app.get('/numbers/subtract/:a/from/:b', (req, res) => {
+  const a = parseInt(req.params.a);
+  const b = parseInt(req.params.b);
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    return res.status(400).json({ error: 'Parameters must be valid numbers.' });
+  }
+  return res.status(200).json({ result: subtract(b, a) });
+});
+
+app.post('/numbers/multiply', (req, res) => {
+  const { a } = req.body;
+  const { b } = req.body;
+
+  if ((a, b)) {
+    return res.status(200).json({ result: multiply(a, b) });
+  }
+  return res.status(400).json({ error: 'Parameters "a" and "b" are required.' });
 });
 
 module.exports = app;

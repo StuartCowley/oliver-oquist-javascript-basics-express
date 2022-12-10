@@ -39,7 +39,7 @@ const quotient = (a, b) => {
 };
 
 const remainder = (a, b) => {
-  return (a % b);
+  return a % b;
 };
 
 module.exports = {
@@ -53,5 +53,5 @@ module.exports = {
   roundDown,
   absolute,
   quotient,
-  remainder
-}
+  remainder,
+};
