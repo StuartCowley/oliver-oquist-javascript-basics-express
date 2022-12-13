@@ -11,8 +11,7 @@ const csvStringToArray = string => {
 };
 
 const addToArray = (element, array) => {
-  array.push(element);
-  return undefined;
+  return array.push(element);
 };
 
 const addToArray2 = (element, array) => {
@@ -20,11 +19,10 @@ const addToArray2 = (element, array) => {
 };
 
 const removeNthElement = (index, array) => {
-  if (!index){
+  if (!index) {
     return array.shift();
   }
-  return array.splice(index, index-1);
-
+  return array.splice(index, index - 1);
 };
 
 const numbersToStrings = numbers => {
@@ -41,7 +39,6 @@ const reverseWordsInArray = strings => {
     element = element.reverse();
     element = element.join('');
     strings[index] = element;
-    
   });
   return strings;
   /*
@@ -54,7 +51,7 @@ const reverseWordsInArray = strings => {
   });
   return newArray;
   */
-}
+};
 
 function onlyEven(numbers) {
   const evenNumbers = numbers.filter(element => {
@@ -64,7 +61,7 @@ function onlyEven(numbers) {
   });
   console.log(evenNumbers);
   return evenNumbers;
-} 
+}
 
 const removeNthElement2 = (index, array) => {
   const items = array.filter(element => {
@@ -79,10 +76,7 @@ const elementsStartingWithAVowel = strings => {
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   const newArray = strings.filter(element => {
     for (let i = 0; i < vowels.length; i++) {
-      if (
-        element.charAt(0) == vowels[i] ||
-        element.charAt(0) == vowels[i].toUpperCase()
-      ) {
+      if (element.charAt(0) == vowels[i] || element.charAt(0) == vowels[i].toUpperCase()) {
         return element;
       }
     }
@@ -103,9 +97,7 @@ const sumNumbers = numbers => {
 };
 
 const sortByLastLetter = strings => {
-  return strings.sort(
-    (a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1)
-  );
+  return strings.sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
 };
 
 module.exports = {
@@ -123,5 +115,5 @@ module.exports = {
   elementsStartingWithAVowel,
   removeSpaces,
   sumNumbers,
-  sortByLastLetter
+  sortByLastLetter,
 };
